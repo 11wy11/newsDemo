@@ -1,0 +1,8 @@
+<!--pages/detail/detail.wxml-->
+<view class='content'>
+<view class='title'></view>
+<view class='desc'>
+<view class='publish'>
+
+</view></view>
+</view>

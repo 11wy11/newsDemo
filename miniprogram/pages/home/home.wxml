@@ -1,0 +1,36 @@
+<!--pages/home/home.wxml-->
+<import src="recommend.wxml"/>
+<view class='content'>
+  <view class='bg'>
+    <view class='name'>今日头条</view>
+    <view class='search'>
+      <view>
+        <image src='../../images/search.png' style='width:14px;height:14px'></image>
+      </view>
+      <input type='text' placeholder='搜你想要的'></input>
+    </view>
+  </view>
+  <view class='navbg'>
+    <view class='nav'>
+      <scroll-view class='scroll-view_H' scroll-x="true">
+        <view class='scroll-view_H'>
+          <view wx:for="{{titleList}}" wx:for-item="titleItem" wx:for-index="titleIndex" wx:key="{{titleItem}}">
+            <view class="{{flag==titleItem.id?'select':'normal'}}" data-id="{{titleItem.id}}" bindtap='switchNav'>{{titleItem.text}}</view>
+          </view>
+        </view>
+
+      </scroll-view>
+    </view>
+    <view class='add'>+</view>
+  </view>
+  <swiper current='{{flag}}' style='height:800px;'>
+    <block wx:for="{{titleList}}" wx:for-item="titleItem" wx:for-index="titleIndex" wx:key="{{titleItem}}">
+      <swiper-item wx:if="{{!titleItem.src}}">{{titleItem.content}}</swiper-item>
+      <swiper-item wx:else>
+       <include src="recommend.wxml" />
+        <!-- <include src="titleItem.src" /> -->
+        <!-- <template is="{{titleItem.src}}"></template> -->
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

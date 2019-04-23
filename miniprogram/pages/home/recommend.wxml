@@ -1,0 +1,17 @@
+<!--pages/home/recommend.wxml-->
+<template name="recommend">
+<view wx:for="{{items}}" wx:for-item="newItem" wx:for-index="newIndex" wx:key="newItem.title">
+  <view class='item' bindtap='seeDetail'>
+    <view class='pic' wx:for="{{newItem.images}}" wx:for-item="newImages" wx:for-index="newImagesIndex" wx:key="newImages.src">
+      <image src='{{newImages.src}}' style='width:30%;height:69px;'></image>
+    </view>
+    <view class='info'>
+      <view class='desc' wx:for="{{newItem.desc}}" wx:for-item="newDesc" wx:for-index="newDescIndex" wx:key="newDesc">
+        <text>{{newDesc}}</text>
+      </view>
+      <view class='opr'><view>x</view></view>
+    </view>
+    <view class='hr'></view>
+  </view>
+</view>
+</template>
